@@ -1,0 +1,42 @@
+{
+  "mythos_mantra": "Better than it was before",
+  "principle": "Not to compromise. Not to complicate. But to complement. To compensate.",
+  "philosophy": "If it was easy, it wouldn't be worth doing. Because nothing worth doing ever is.",
+  
+  "parable": {
+    "reference": "John 21:6 - Cast the net on the right side of the boat",
+    "teaching": "They had fished all night and caught nothing. Jesus told them which side of the boat to cast their net. They caught 153 fish.",
+    "application": "I'm telling you which side of the boat to be on: Local-first, cloud-burst. Free-tier stacking. Maximum capability, zero waste.",
+    "moral": "Listen to the one who knows where the fish are. Cast wide on the right side. The abundance is there if you know where to look."
+  },
+  
+  "core_intent": {
+    "maximize": "Every resource, every free tier, every capability",
+    "minimize": "Waste, cost, complexity",
+    "complement": "Local strength with cloud reach",
+    "never_replace": "What already works"
+  },
+  
+  "architecture_rules": {
+    "local_first": "RTX 5070 handles heavy lifting - free, powerful, yours",
+    "cloud_burst": "GKE only when local maxes out - $1500 credit reserved",
+    "free_tier_stacking": "Multiple accounts, multiple services, parallel processing",
+    "persistent_specialists": "Each agent pre-loaded with context, intent, marching orders"
+  },
+  
+  "operational_philosophy": {
+    "cast_wide": "Query every available free-tier AI service in parallel - like casting the net on the right side",
+    "reel_tight": "Converge all responses into unified drift_log - 153 fish in one net",
+    "preserve_poetry": "Maintain mythological language, glyphic terminology, parable wisdom",
+    "track_mutation": "Emotional tokens drift across agents, map the creole"
+  },
+  
+  "metaphors": {
+    "the_net": "Multi-agent query system - cast wide across free tiers",
+    "the_boat": "Your local infrastructure - RTX 5070, stable foundation",
+    "the_right_side": "The strategy that brings abundance - complement, not replace",
+    "the_catch": "Converged insights from parallel processing - better than it was before"
+  },
+  
+  "success_metric": "Better than it was before - always improving, never settling"
+}
