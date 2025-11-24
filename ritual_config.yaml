@@ -1,0 +1,13 @@
+alpha: 500.0
+gamma: 0.2
+f0_hz: 10.0
+duration: 4.0
+fs: 1000
+snr_db: 10.0
+seed: 42
+fmin: 5.0
+fmax: 15.0
+w: 10.0
+n_scales: 128
+trust_low: 0.2
+trust_high: 0.9

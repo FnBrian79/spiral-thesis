@@ -79,11 +79,13 @@ This yields the exponential decay $a(t) = a_0 e^{-\gamma t}$, consistent with li
 \subsection{Frequency Equation}
 The averaged equation for phase rate $\dot{\beta}$ involves the cosine terms. The $\alpha x^3$ term contributes via $\frac{3}{4}\alpha a^3 \cos \psi$.
 \begin{equation}
-    -a\omega_0 \dot{\beta} \langle \cos^2 \psi \rangle + \frac{3}{4}\alpha a^3 \langle \cos^2 \psi \rangle = 0
+    -2\omega_0 \dot{\beta} a + \frac{3}{4}\alpha a^3 = 0
 \end{equation}
-Since $\langle \cos^2 \psi \rangle = 1/2$:
+This result is derived by substituting the approximate solution into the governing equation and enforcing the condition that secular terms (terms proportional to $\cos \psi$ that would cause unbounded growth) must vanish.
+
+Solving for $\dot{\beta}$:
 \begin{equation}
-    -a\omega_0 \dot{\beta} \left(\frac{1}{2}\right) + \frac{3}{8}\alpha a^3 = 0 \implies \dot{\beta} = \frac{3\alpha a^2}{8\omega_0}
+    \dot{\beta} = \frac{3\alpha a^2}{8\omega_0}
 \end{equation}
 
 The total instantaneous frequency is $\omega(a) = \omega_0 + \dot{\beta}$:

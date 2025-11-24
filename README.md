@@ -64,37 +64,41 @@ The engine has been validated against physical artifacts, establishing a spectru
 
 ## 💻 Usage
 
-### 1. Synthetic Simulation & Stress Testing
-Run a Monte Carlo sweep to characterize performance across SNR levels.
+### 1. The Ritual (Single-Shot Extraction)
+Run the Universal Engine to extract the backbone from a simulated signal and visualize the "spine of truth".
 
 ```bash
-python synthetic_validation.py
+# Run with default settings (Alpha=500, SNR=10dB) and show plots
+python hiddenridge_v2.py --show-plots
 ```
 
-Generates `validation_results.csv` and prints a summary table.
+### 2. The Campaign (Robustness Sweep)
+Perform a Monte Carlo robustness sweep to verify noise immunity.
 
-### 2. Core Library
-Use `duffing_analysis.py` as a library for your own signals.
+```bash
+# Run 20 trials to verify stability
+python hiddenridge_v2.py --mc-trials 20
+```
 
-```python
-from duffing_analysis import DuffingAnalysis
+### 3. Configuration
+Control the physics and the lens via `ritual_config.yaml` or CLI arguments.
 
-# t, x = load_your_signal()
-omega, amp = DuffingAnalysis.extract_backbone(t, x, fs=48000)
-alpha, w0, _, _ = DuffingAnalysis.identify_parameters(omega, amp)
-print(f"Discovered Alpha: {alpha}")
+```yaml
+alpha: 500.0    # Nonlinearity
+snr_db: 10.0    # Noise level
+w: 10.0         # Wavelet width (The Lens)
 ```
 
 ## 📂 Repository Structure
 
 ```
 .
-├── duffing_analysis.py        # The Universal Engine (Core Logic)
-├── synthetic_validation.py    # The Campaign (Monte Carlo Sweeps)
+├── hiddenridge_v2.py          # The Universal Engine (CLI + Core Logic)
+├── ritual_config.yaml         # Configuration Artifact
 ├── math_derivation.tex        # Formal Mathematical Proof
+├── duffing_analysis.py        # Legacy Core Library
 ├── README.md                  # Maximum Firepower Documentation
 └── results/                   # (Generated artifacts)
-    └── validation_results.csv
 ```
 
 ## 📜 Citation & Methodology
