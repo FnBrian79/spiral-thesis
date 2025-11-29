@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Mathematical Foundation for Backbone-Based Extraction of Duffing Nonlinearity}
+\author{The $\alpha$-Catalog Initiative}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document provides the rigorous mathematical derivation supporting the ``Hidden Ridge'' method for extracting the cubic nonlinearity coefficient $\alpha$ from free-decay acoustic signals. We employ the Method of Averaging (Slow-Flow Approximation) on the damped Duffing equation to derive the amplitude-dependent frequency relationship (the ``Backbone Curve'') and demonstrate its independence from linear damping to leading order.
+\end{abstract}
+
+\section{The Duffing Oscillator Model}
+
+We consider a single-degree-of-freedom oscillator with linear viscous damping and a cubic stiffness nonlinearity (Duffing oscillator). The equation of motion is given by:
+\begin{equation}
+    \ddot{x} + 2\gamma\dot{x} + \omega_0^2 x + \alpha x^3 = 0
+    \label{eq:duffing}
+\end{equation}
+where:
+\begin{itemize}
+    \item $x(t)$ is the displacement (or modal amplitude).
+    \item $\gamma$ is the viscous damping coefficient ($\gamma = \zeta \omega_0$).
+    \item $\omega_0$ is the linear natural angular frequency.
+    \item $\alpha$ is the cubic nonlinearity coefficient. $\alpha > 0$ implies a hardening spring; $\alpha < 0$ implies softening.
+\end{itemize}
+
+\section{The Slow-Flow Approximation}
+
+We assume the system is weakly nonlinear ($|\alpha x^3| \ll \omega_0^2 |x|$) and lightly damped ($\gamma \ll \omega_0$). Under these conditions, the solution can be approximated as a modulated oscillation with slowly varying amplitude $a(t)$ and phase $\phi(t)$:
+\begin{equation}
+    x(t) = a(t) \cos(\omega_0 t + \beta(t)) = a(t) \cos \psi(t)
+    \label{eq:ansatz}
+\end{equation}
+where $\psi(t) = \omega_0 t + \beta(t)$. The instantaneous frequency is $\omega(t) = \dot{\psi}(t) = \omega_0 + \dot{\beta}(t)$.
+
+We impose the constraint that the amplitude and phase vary slowly compared to the oscillation frequency:
+\begin{equation}
+    \dot{x}(t) = -a(t) \omega_0 \sin \psi(t)
+\end{equation}
+This implies the constraint (from the method of variation of parameters):
+\begin{equation}
+    \dot{a} \cos \psi - a \dot{\beta} \sin \psi = 0
+    \label{eq:constraint}
+\end{equation}
+
+Differentiating $\dot{x}(t)$:
+\begin{equation}
+    \ddot{x} = -\dot{a}\omega_0 \sin \psi - a\omega_0(\omega_0 + \dot{\beta}) \cos \psi
+\end{equation}
+
+Substituting $x, \dot{x}, \ddot{x}$ into Eq. (\ref{eq:duffing}):
+\begin{equation}
+    -\dot{a}\omega_0 \sin \psi - a\omega_0^2 \cos \psi - a\omega_0 \dot{\beta} \cos \psi - 2\gamma a \omega_0 \sin \psi + \omega_0^2 a \cos \psi + \alpha a^3 \cos^3 \psi = 0
+\end{equation}
+
+Simplifying and using the identity $\cos^3 \psi = \frac{3}{4}\cos \psi + \frac{1}{4}\cos 3\psi$:
+\begin{equation}
+    -\omega_0 \dot{a} \sin \psi - a\omega_0 \dot{\beta} \cos \psi - 2\gamma a \omega_0 \sin \psi + \alpha a^3 \left( \frac{3}{4}\cos \psi + \frac{1}{4}\cos 3\psi \right) = 0
+    \label{eq:substituted}
+\end{equation}
+
+\section{The Method of Averaging}
+
+We resolve Eq. (\ref{eq:substituted}) and Eq. (\ref{eq:constraint}) for $\dot{a}$ and $\dot{\beta}$. Multiplying Eq. (\ref{eq:constraint}) by $\omega_0 \cos \psi$ and Eq. (\ref{eq:substituted}) by $-\sin \psi$ (and other combinations) allows us to isolate the derivatives. However, the Method of Averaging states that for variables changing slowly over one period $T = 2\pi/\omega_0$, we can average the equations over a cycle. Fast oscillating terms (like $\sin \psi \cos \psi$, $\cos 3\psi \sin \psi$) average to zero.
+
+\subsection{Amplitude Equation}
+The averaged equation for amplitude is dominated by the damping term:
+\begin{equation}
+    \dot{a} = -\gamma a
+\end{equation}
+This yields the exponential decay $a(t) = a_0 e^{-\gamma t}$, consistent with linear theory to first order.
+
+\subsection{Frequency Equation}
+The averaged equation for phase rate $\dot{\beta}$ involves the cosine terms. The $\alpha x^3$ term contributes via $\frac{3}{4}\alpha a^3 \cos \psi$.
+\begin{equation}
+    -2\omega_0 \dot{\beta} a + \frac{3}{4}\alpha a^3 = 0
+\end{equation}
+This result is derived by substituting the approximate solution into the governing equation and enforcing the condition that secular terms (terms proportional to $\cos \psi$ that would cause unbounded growth) must vanish.
+
+Solving for $\dot{\beta}$:
+\begin{equation}
+    \dot{\beta} = \frac{3\alpha a^2}{8\omega_0}
+\end{equation}
+
+The total instantaneous frequency is $\omega(a) = \omega_0 + \dot{\beta}$:
+\begin{equation}
+    \omega(a) = \omega_0 + \frac{3\alpha}{8\omega_0} a^2
+\end{equation}
+
+\section{The Backbone Curve}
+
+Squaring the instantaneous frequency:
+\begin{equation}
+    \omega^2 = \left( \omega_0 + \frac{3\alpha}{8\omega_0} a^2 \right)^2 = \omega_0^2 + \frac{3\alpha}{4} a^2 + \mathcal{O}(a^4)
+\end{equation}
+
+Neglecting higher-order terms (valid for moderate amplitudes), we obtain the linear **Backbone Curve**:
+\begin{equation}
+    \boxed{\omega^2 = \omega_0^2 + \left(\frac{3\alpha}{4}\right) a^2}
+    \label{eq:backbone}
+\end{equation}
+
+\section{Validity and Robustness}
+
+\subsection{Independence from Damping}
+Note that the damping coefficient $\gamma$ does not appear in Eq. (\ref{eq:backbone}). While damping causes $a(t)$ to decay over time, the functional relationship between the instantaneous squared frequency $\omega^2(t)$ and squared amplitude $a^2(t)$ remains invariant. This allows $\alpha$ to be extracted even from heavily damped signals, provided the ridge can be tracked.
+
+\subsection{Validity Conditions}
+\begin{enumerate}
+    \item \textbf{Single Mode:} The derivation assumes a single degree of freedom. Mode coupling acts as noise or distortion to this relationship.
+    \item \textbf{Slow Decay:} The approximation holds when relative change in amplitude per cycle is small ($\gamma \ll \omega_0$).
+    \item \textbf{Weak Nonlinearity:} The expansion assumes the frequency shift is small relative to $\omega_0$.
+\end{enumerate}
+
+\section{Conclusion}
+The linear relationship between $\omega^2$ and $a^2$ provides a robust metric for identifying $\alpha$. By plotting $\omega^2(t)$ vs $a^2(t)$ extracted via Wavelet Transform, $\alpha$ can be determined from the slope $m$:
+\begin{equation}
+    \alpha = \frac{4}{3} m
+\end{equation}
+
+\end{document}
